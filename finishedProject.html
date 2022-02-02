@@ -208,7 +208,9 @@
                 // render the probability scores per class
                 for (let i = 0; i < classLabels.length; i++) {
                     if (result.scores[i] > 0.60) {
-                        chord.innerHTML = chords[i];
+                        if(result.scores[2] < 50){
+                            chord.innerHTML = chords[i];
+                        }
                     }
                 }
             }, {
