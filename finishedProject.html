@@ -207,10 +207,8 @@
                 const scores = result.scores; // probability of prediction for each class
                 // render the probability scores per class
                 for (let i = 0; i < classLabels.length; i++) {
-                    if (result.scores[i] > 0.60) {
-                        if(result.scores[2] < 50){
-                            chord.innerHTML = chords[i];
-                        }
+                    if (result.scores[2] < 40) {
+                        chord.innerHTML = chords[i];
                     }
                 }
             }, {
