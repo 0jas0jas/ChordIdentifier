@@ -11,8 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap" rel="stylesheet">
     <title>CHORD IDENTIFIERRRRR</title>
     <style>
-
-        .play-area{
+        .play-area {
             width: 60%;
             height: 60%;
             background-color: #f2f2f2;
@@ -20,7 +19,7 @@
             overflow: hidden;
         }
 
-        #chord{
+        #chord {
             top: 0;
             left: 0;
             background-color: #f2f2f2;
@@ -35,7 +34,7 @@
             font-size: 60px;
         }
 
-        span{
+        span {
             font-family: 'Comforter', cursive;
         }
 
@@ -82,12 +81,12 @@
             animation-timing-function: steps(2, end);
         }
 
-        #listening{
-                text-align: center;
-                display: none;
-                font-size: 30px;
-                font-family: 'Supermercado One', cursive;
-            }
+        #listening {
+            text-align: center;
+            display: none;
+            font-size: 30px;
+            font-family: 'Supermercado One', cursive;
+        }
 
         @keyframes glitch {
             0% {
@@ -207,12 +206,12 @@
                 const scores = result.scores; // probability of prediction for each class
                 // render the probability scores per class
                 result.scores[2] = 0;
-//                     Array.prototype.max = function() {
-//                         return Math.max.apply(null, this);
-//                     };
-                    const maximum = Math.max(...result.scores);
-                    const THEChord = result.score.indexOf(maximum)
-                    chord.innerHTML = chords[THEChord];
+                //                     Array.prototype.max = function() {
+                //                         return Math.max.apply(null, this);
+                //                     };
+                const maximum = Math.max(...result.scores);
+                const THEChord = result.scores.indexOf(maximum)
+                chord.innerHTML = chords[THEChord];
             }, {
                 includeSpectrogram: true, // in case listen should return result.spectrogram
                 probabilityThreshold: 0.75,
@@ -224,7 +223,7 @@
             // setTimeout(() => recognizer.stopListening(), 5000);
         }
 
-        function disappear(){
+        function disappear() {
             document.getElementById("btn").style.display = "none";
             document.getElementById("listening").style.display = "block";
         }
