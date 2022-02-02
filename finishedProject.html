@@ -165,7 +165,7 @@
         chords = [
             "🇦 Major",
             "🇧 Major",
-            "🤫",
+            null,
             "🇨 Major",
             "🇩 Major",
             "🇪 Major",
@@ -206,11 +206,13 @@
             recognizer.listen(result => {
                 const scores = result.scores; // probability of prediction for each class
                 // render the probability scores per class
-                for (let i = 0; i < classLabels.length; i++) {
-                    if (result.scores[2] < 40) {
-                        chord.innerHTML = chords[i];
-                    }
-                }
+                result.scores[2] = 0;
+//                     Array.prototype.max = function() {
+//                         return Math.max.apply(null, this);
+//                     };
+                    const maximum = Math.max(...result.scores);
+                    const THEChord = result.score.indexOf(maximum)
+                    chord.innerHTML = chords[THEChord];
             }, {
                 includeSpectrogram: true, // in case listen should return result.spectrogram
                 probabilityThreshold: 0.75,
